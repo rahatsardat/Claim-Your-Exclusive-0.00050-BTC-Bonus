@@ -70,14 +70,33 @@
         .referral-box h2 { color: white; }
         .referral-box p { color: #cdd5e0; max-width: 700px; margin: 0 auto 40px; }
         .benefits-grid { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
-        .benefit-item { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 12px; flex-basis: 200px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .benefit-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; }
-        .benefit-item h4 { margin: 10px 0 5px; font-size: 1.1rem; color: white; }
+        
+        /* Updated benefit-item styles */
+        .benefit-item { 
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 20px; 
+            border-radius: 12px; 
+            flex-basis: 200px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none; /* Removes underline from link */
+            transition: transform 0.2s, background-color 0.2s; /* Adds smooth transition */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px); /* Lifts the box on hover */
+            background: rgba(255, 255, 255, 0.1); /* Slightly lightens the box on hover */
+        }
+        .benefit-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .benefit-item h4 { margin: 0; font-size: 1.1rem; color: white; }
+        
         .share-button { background: var(--primary-color); color: white; padding: 15px 30px; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; }
         .share-button:hover { background: #e68917; transform: translateY(-2px); }
         .share-button i { margin-right: 8px; }
 
-        /* Withdrawal Form Section */
+        /* Withdrawal Form Section & other styles */
         #withdrawal-section { background-color: var(--background-light); }
         .withdrawal-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-color); }
         .balance-display { background: #f0fdf4; border: 1px solid var(--success-color); color: #15803d; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 25px; }
@@ -92,37 +111,13 @@
         .submit-btn { width: 100%; padding: 15px; background: var(--primary-color); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.3s; }
         .submit-btn:hover:not(:disabled) { background: #e68917; }
         .submit-btn:disabled { background: #fdba74; cursor: not-allowed; }
-
-        /* Success Message - NEW STYLES */
-        .success-message {
-            display: none; /* Hidden by default */
-            text-align: center;
-            padding: 40px;
-            background: #f0fdf4;
-            border: 2px solid var(--success-color);
-            border-radius: 15px;
-        }
+        .success-message { display: none; text-align: center; padding: 40px; background: #f0fdf4; border: 2px solid var(--success-color); border-radius: 15px; }
         .success-message i { font-size: 3rem; color: var(--success-color); margin-bottom: 20px; }
         .success-message h3 { color: #166534; font-size: 1.8rem; margin: 0 0 10px; }
         .success-message p { color: #15803d; font-size: 1.2rem; margin: 0 0 25px; line-height: 1.5; }
-        .details-btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        .details-btn { display: inline-block; background: var(--secondary-color); color: white; padding: 12px 25px; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 8px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .details-btn:hover { background: #1a2535; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-
-        /* Footer */
         footer { text-align:center; padding: 40px 0; background-color: var(--secondary-color); color: #e2e8f0; }
-
-        /* Share Modal Styles */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
         .share-modal { background: white; padding: 40px; border-radius: 15px; width: 90%; max-width: 500px; text-align: center; position: relative; transform: scale(0.9); transition: transform 0.3s; }
@@ -164,11 +159,23 @@
                  <div class="referral-box">
                     <h2>Invite Friends, Earn More!</h2>
                     <p>Sharing is rewarding. For every friend who joins, you not only help them get started but also boost your own earnings. It's a win-win for everyone involved in building our community.</p>
+                    
+                    <!-- Updated Benefits Grid with Adsterra Links -->
                     <div class="benefits-grid">
-                        <div class="benefit-item"><i class="fa-solid fa-users"></i><h4>Expand Network</h4></div>
-                        <div class="benefit-item"><i class="fa-solid fa-coins"></i><h4>Increase Earnings</h4></div>
-                        <div class="benefit-item"><i class="fa-solid fa-rocket"></i><h4>Grow Faster</h4></div>
+                        <a href="https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" target="_blank" class="benefit-item">
+                            <i class="fa-solid fa-users"></i>
+                            <h4>Expand Network</h4>
+                        </a>
+                        <a href="https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" target="_blank" class="benefit-item">
+                            <i class="fa-solid fa-coins"></i>
+                            <h4>Increase Earnings</h4>
+                        </a>
+                        <a href="https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" target="_blank" class="benefit-item">
+                            <i class="fa-solid fa-rocket"></i>
+                            <h4>Grow Faster</h4>
+                        </a>
                     </div>
+
                     <button class="share-button" id="openShareModal"><i class="fa-solid fa-share-nodes"></i> Share With Friends</button>
                  </div>
             </div>
@@ -178,7 +185,6 @@
             <div class="container">
                 <h2>Withdraw Your Earnings</h2>
                 <div class="withdrawal-container">
-                    
                     <div id="withdrawal-content">
                         <div class="balance-display">
                             <h3>CURRENT BALANCE</h3>
@@ -197,8 +203,6 @@
                             <button type="submit" id="withdrawBtn" class="submit-btn" disabled>Complete Shares to Withdraw</button>
                         </form>
                     </div>
-
-                    <!-- Updated Success Message -->
                     <div class="success-message" id="successMessage">
                         <i class="fa-solid fa-circle-check"></i>
                         <h3>Request Successful!</h3>
@@ -216,10 +220,10 @@
             <h3>Share with your friends!</h3>
             <p>Click the buttons below to share. Each click on "Share With Friends" button on the page counts towards your goal.</p>
             <div class="social-share-buttons">
-                <a href="https://wa.me/?text=Hey!%20I%20found%20a%20platform%20that%20gives%20free%20BTC%20bonus!%20Check%20it%20out:%20https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://t.me/share/url?url=https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402&text=Hey!%20I%20found%20a%20platform%20that%20gives%20free%20BTC%20bonus!" target="_blank" class="btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402" target="_blank" class="btn-facebook"><i class="fab fa-facebook"></i> Facebook</a>
-                <a href="https://twitter.com/intent/tweet?url=https://www.profitableratecpm.com/vsnrrkqbrb?key=875a394a0867b7d59e2cb13e1f009402&text=Claim%20your%20free%20BTC%20bonus!" target="_blank" class="btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#" target="_blank" class="btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="#" target="_blank" class="btn-facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#" target="_blank" class="btn-twitter"><i class="fab fa-twitter"></i> Twitter</a>
             </div>
         </div>
     </div>
@@ -254,12 +258,28 @@
                     withdrawBtn.textContent = 'Complete Shares to Withdraw';
                 }
             }
+            
+            function setupShareLinks() {
+                const baseUrl = window.location.origin + window.location.pathname;
+                const refCode = Math.random().toString(36).substring(2, 8);
+                const shareUrl = `${baseUrl}?ref=${refCode}`;
+                
+                const encodedUrl = encodeURIComponent(shareUrl);
+                const shareText = "Hey! I found a platform that gives a free BTC bonus! Check it out: ";
+                const encodedText = encodeURIComponent(shareText);
+
+                document.querySelector('.btn-whatsapp').href = `https://wa.me/?text=${encodedText}${encodedUrl}`;
+                document.querySelector('.btn-telegram').href = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+                document.querySelector('.btn-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+                document.querySelector('.btn-twitter').href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodeURIComponent("Claim your free BTC bonus!")}`;
+            }
 
             openModalBtn.addEventListener('click', () => {
                 if (shareCount < requiredShares) {
                     shareCount++;
                 }
                 updateShareDisplay();
+                setupShareLinks(); 
                 shareModal.classList.add('active');
             });
 
